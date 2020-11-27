@@ -11,7 +11,11 @@
   </ul>
 <% end %>
 
-<p><%= link_to 'Add a review'.html_safe, new_restaurant_review_path(@restaurant), class: "btn btn-success"%></p>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit 'Submit Review', class: "btn btn-info"  %>
+<% end %>
 
 <p><%= link_to '<i class="fas fa-backward"></i> Back'.html_safe, restaurants_path, class: "btn btn-secondary"%></p>
 
