@@ -1,0 +1,17 @@
+<h1><%= @restaurant.name %></h1>
+<h4><%= @restaurant.category %></h4>
+<p><i class="fas fa-map-marker-alt"></i> <%= @restaurant.address %> - <i class="fas fa-phone-square"></i> <%= @restaurant.phone_number %></p>
+
+<% @restaurant.reviews.each do |review| %>
+  <ul>
+    <li>
+      <h4><%= review.rating %></h4> 
+      <p><%= review.content %></p>
+    </li>
+  </ul>
+<% end %>
+
+<p><%= link_to 'Add a review'.html_safe, new_restaurant_review_path(@restaurant), class: "btn btn-success"%></p>
+
+<p><%= link_to '<i class="fas fa-backward"></i> Back'.html_safe, restaurants_path, class: "btn btn-secondary"%></p>
+
